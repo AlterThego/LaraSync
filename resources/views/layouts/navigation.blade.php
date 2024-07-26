@@ -18,7 +18,7 @@
                 </svg>
                 <span class="ml-3 hidden xl:block font-bold">Home</span>
             </a> --}}
-                <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="block p-1 mx-2 rounded hover:bg-base-300">
+                <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="block p-1 mx-2 rounded hover:bg-base-200">
                     <div
                         class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3 text-base-content">
                         @if (request()->routeIs('home'))
@@ -43,7 +43,7 @@
 
             </li>
             <li>
-                <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')" class="block p-1 mx-2 rounded hover:bg-base-300">
+                <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')" class="block p-1 mx-2 rounded hover:bg-base-200">
                     <div
                         class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3 text-base-content">
                         @if (request()->routeIs('profile.edit'))

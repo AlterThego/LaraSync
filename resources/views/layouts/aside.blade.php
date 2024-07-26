@@ -39,22 +39,23 @@
         </ul>
     </div>
 
-    <div class="mt-auto p-4 mb-10">
+    <div class="mt-auto px-1 py-4 mb-10">
         <div class="flex items-center justify-center">
-            <form method="POST" action="{{ route('logout') }}" class="w-full flex items-center">
+            <form method="POST" action="{{ route('logout') }}" class="w-full">
                 @csrf
                 <button type="submit"
-                    class="flex items-center w-full text-left bg-transparent border-0 py-2 px-4 hover:bg-base-300 focus:outline-none rounded">
+                    class="flex items-center justify-center w-full text-left bg-transparent hover:bg-base-200 focus:outline-none rounded py-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"
                         class="mr-2">
                         <path fill="currentColor"
                             d="M5.616 20q-.691 0-1.153-.462T4 18.384V5.616q0-.691.463-1.153T5.616 4h6.403v1H5.616q-.231 0-.424.192T5 5.616v12.769q0 .23.192.423t.423.192h6.404v1zm10.846-4.461l-.702-.72l2.319-2.319H9.192v-1h8.887l-2.32-2.32l.702-.718L20 12z" />
                     </svg>
-                    Log Out
+                    <span class="hidden md:inline">Log Out</span>
                 </button>
             </form>
         </div>
     </div>
+
 
 
 
