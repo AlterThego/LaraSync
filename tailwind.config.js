@@ -14,6 +14,9 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+
+            },
         },
     },
 
@@ -21,6 +24,8 @@ export default {
         // forms,
         require('daisyui'),],
     daisyui: {
-        themes: ["winter", "night", "light", "dark"],
+        themes: ['winter', 'black']
     },
+    darkMode: ['class', '[data-theme="black"]']
+
 };

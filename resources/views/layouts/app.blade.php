@@ -17,12 +17,12 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-base-100">
+    <div class="min-h-screen bg-base-100 bg-opacity-10 max-w-4xl mx-auto">
         @include('layouts.navigation')
 
         <!-- Page Heading -->
         @isset($header)
-            <header class="bg-base-200 shadow bg">
+            <header class="bg-base-200 shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
@@ -31,8 +31,13 @@
 
         <!-- Page Content -->
         <main>
-            {{ $slot }}
+            <div class="border border-gray-200 dark:border-gray-700">
+                {{ $slot }}
+            </div>
         </main>
+
+        <!-- Aside Section -->
+        @include('layouts.aside')
     </div>
 </body>
 
