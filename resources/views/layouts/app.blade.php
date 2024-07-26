@@ -65,7 +65,8 @@
     </div>
 
     <!-- Mobile Navigation -->
-    <div class="block md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-300">
+    <div
+        class="block md:hidden fixed bottom-0 left-0 right-0 bg-base-100 border-t border-gray-200 dark:border-gray-700">
         <div class="flex justify-around">
             <button class="p-2">
                 <img src="https://placehold.co/24x24?text=H" alt="Home" class="w-6 h-6">
@@ -84,6 +85,30 @@
             </button>
         </div>
     </div>
+
+    {{-- Theme Controller --}}
+    <script>
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            document.querySelectorAll('.theme-controller').forEach(controller => {
+                controller.checked = theme === 'black';
+            });
+        }
+
+        document.querySelectorAll('.theme-controller').forEach(controller => {
+            controller.addEventListener('change', function() {
+                const theme = this.checked ? 'black' : 'winter';
+                applyTheme(theme);
+                localStorage.setItem('theme', theme);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') ||
+                'winter';
+            applyTheme(savedTheme);
+        });
+    </script>
 </body>
 
 </html>

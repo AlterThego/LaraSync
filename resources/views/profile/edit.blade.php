@@ -8,10 +8,8 @@
         <h1 class="text-3xl font-bold mb-6">Profile</h1>
 
         <!-- Post input -->
-        <div class="bg-base-100 p-4 rounded-lg shadow mb-6 border border-gray-200 dark:border-gray-700">
-
-
-            <div class="flex items-center justify-center">
+        <div class="bg-base-100 p-4 rounded-lg mb-3 shadow border border-gray-200 dark:border-gray-700">
+            <div class="flex items-center justify-center mb-6 ">
                 <div class="avatar">
                     <div class="w-44 rounded-full">
                         <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
@@ -23,7 +21,7 @@
                     Jane Doe
                 </p>
             </div>
-
+            <div class="divider"></div>
             <div class="bg-base-100">
                 <div class="flex flex-col md:flex-row justify-center min-h-screen">
                     <div class="w-full md:w-2/6 p-4 bg-base-100 border-b md:border-b-0 md:border-r border-base-300">
@@ -33,7 +31,7 @@
                                 <div class="collapse collapse-arrow join-item border-base-300 border">
                                     <input type="radio" name="my-accordion-4" checked="checked" />
                                     <div class="collapse-title">
-                                        <p class="text-xl font-medium">
+                                        <p class="text-lg font-medium">
                                             Profile Information</p>
                                     </div>
                                     <div class="collapse-content">
@@ -45,7 +43,7 @@
                                 <div class="collapse collapse-arrow join-item border-base-300 border">
                                     <input type="radio" name="my-accordion-4" />
                                     <div class="collapse-title">
-                                        <p class="text-xl font-medium">
+                                        <p class="text-lg font-medium">
                                             Edit Information</p>
                                     </div>
                                     <div class="collapse-content">
@@ -54,7 +52,7 @@
                                 </div>
                                 <div class="collapse collapse-arrow join-item border-base-300 border">
                                     <input type="radio" name="my-accordion-4" />
-                                    <div class="collapse-title text-xl font-medium">Update Password</div>
+                                    <div class="collapse-title text-lg font-medium">Update Password</div>
                                     <div class="collapse-content">
                                         @include('profile.partials.update-password-form')
                                     </div>

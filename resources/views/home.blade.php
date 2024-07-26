@@ -1,17 +1,18 @@
 <x-app-layout>
-    <div class="flex-grow mx-16 md:mx-32 lg:mx-48 xl:mx-64 2xl:mx-56 py-6 px-6">
+    <div class="flex-grow mr-16 md:mx-32 lg:mx-48 xl:mx-64 2xl:mx-56 py-6 px-6">
         <h1 class="text-3xl font-bold mb-6">News and Updates</h1>
 
         <!-- Post input -->
         <div class="bg-base-100 p-4 rounded-lg shadow mb-6 border border-gray-200 dark:border-gray-700">
-            <textarea class="w-full p-2 border border-gray-200 dark:border-gray-700 rounded" rows="3"
+            <textarea class="bg-base-200 textarea textarea-bordered text-base w-full " rows="3"
                 placeholder="What's on your mind?"></textarea>
+
             <div class="mt-2 flex justify-between items-center">
                 <div>
                     <button class="btn btn-sm">📷 Photo</button>
                     <button class="btn btn-sm ml-2">📍 Location</button>
                 </div>
-                <button class="btn btn-info">New Post</button>
+                <button class="btn btn-primary">New Post</button>
             </div>
         </div>
 
