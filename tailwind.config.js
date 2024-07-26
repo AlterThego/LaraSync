@@ -21,6 +21,6 @@ export default {
         // forms,
         require('daisyui'),],
     daisyui: {
-        themes: ["winter", "night"],
+        themes: ["winter", "night", "light", "dark"],
     },
 };
