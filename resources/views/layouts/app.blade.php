@@ -14,9 +14,16 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'winter';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 
-<body class="font-sans antialiased">
+{{-- <body class="font-sans antialiased">
     <div class="min-h-screen bg-base-100 bg-opacity-10 max-w-4xl mx-auto">
         @include('layouts.navigation')
 
@@ -38,6 +45,44 @@
 
         <!-- Aside Section -->
         @include('layouts.aside')
+    </div>
+</body> --}}
+
+<body class="h-full">
+    <div class="flex h-full">
+
+        <!-- Left Sidebar -->
+        @include('layouts.navigation')
+
+        <!-- Main Content -->
+        <main class="max-w-6xl mx-auto">
+            {{ $slot }}
+
+        </main>
+
+        <!-- Right Sidebar -->
+        @include('layouts.aside')
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="block md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-300">
+        <div class="flex justify-around">
+            <button class="p-2">
+                <img src="https://placehold.co/24x24?text=H" alt="Home" class="w-6 h-6">
+            </button>
+            <button class="p-2">
+                <img src="https://placehold.co/24x24?text=P" alt="Profile" class="w-6 h-6">
+            </button>
+            <button class="p-2">
+                <img src="https://placehold.co/24x24?text=S" alt="Settings" class="w-6 h-6">
+            </button>
+            <button class="p-2">
+                <img src="https://placehold.co/24x24?text=F" alt="Favorites" class="w-6 h-6">
+            </button>
+            <button class="p-2">
+                <img src="https://placehold.co/24x24?text=G" alt="Github" class="w-6 h-6">
+            </button>
+        </div>
     </div>
 </body>
 
