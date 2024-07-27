@@ -6,5 +6,5 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-import { themeChange } from 'theme-change'
-themeChange()
+// import { themeChange } from 'theme-change'
+// themeChange()
