@@ -3,8 +3,8 @@
         <h1 class="text-3xl font-bold mb-6">News and Updates</h1>
 
         <!-- Post input -->
-        <div class="bg-base-100 p-4 rounded-lg shadow mb-6 border border-gray-200 dark:border-gray-700">
-            <textarea class="bg-base-200 textarea textarea-bordered text-base w-full " rows="3"
+        <div class="bg-base-100 p-4 rounded-lg shadow mb-6 border border-gray-200 dark:border-gray-700 ">
+            <textarea class="bg-base-200 textarea textarea-bordered text-base w-full focus:border-primary" rows="3"
                 placeholder="What's on your mind?"></textarea>
 
             <div class="mt-2 flex justify-between items-center">

@@ -1,6 +1,6 @@
 <nav class="hidden md:block">
     <div
-        class="w-16 xl:w-64 shrink-0 bg-base-100 border-r border-gray-200 dark:border-gray-700 h-full fixed left-0 flex flex-col pl-6">
+        class="w-16 xl:w-64 shrink-0 bg-base-100 border-r border-gray-200 dark:border-gray-700 h-full fixed top-0 flex flex-col">
         <div class="px-4 py-8">
             <a href="#" class="shrink-0">
                 <div class="flex items-center justify-start gap-2">
