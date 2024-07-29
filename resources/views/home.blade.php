@@ -5,15 +5,17 @@
     </div>
     <div class="p-6">
         <!-- Post input -->
-        <div class="bg-base-100 p-4 rounded-lg shadow mb-6 border border-gray-200 dark:border-gray-700">
+        <div class="bg-base-100 p-4 rounded-lg mb-6 border border-gray-300 dark:border-gray-700">
             <div class="card bg-base-200 rounded-lg mb-4 border border-gray-300 dark:border-gray-700 cursor-pointer"
                 onclick="createPostModal.showModal()">
-                <p class="pt-2 pl-4 pb-16 text-gray-400">What's on your mind? {{ Auth::user()->name }}</p>
+                <p class="pt-2 pl-4 pb-16 text-gray-400">What's on your mind, {{ Auth::user()->name }}?</p>
             </div>
             <div class="flex justify-between items-center">
                 <div>
-                    <button class="btn btn-sm">📷 Photo</button>
-                    <button class="btn btn-sm ml-2">📍 Location</button>
+                    <button class="btn btn-sm" onclick="createPostModal.showModal()"">📷 Photo</button>
+                    <button class="btn
+                        btn-sm ml-2" onclick="createPostModal.showModal()"">📍
+                        Video</button>
                 </div>
             </div>
         </div>
@@ -22,7 +24,7 @@
         <div class="space-y-6">
             <!-- Post 1 -->
             @foreach ($posts as $post)
-                <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow">
+                <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg">
                     <div class="flex justify-between">
                         <div class="flex items-center mb-4">
                             {{-- <div class="">
@@ -105,7 +107,7 @@
 
                 </div>
             @endforeach
-            <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow">
+            <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg">
                 <div class="flex items-center mb-4">
                     <img src="https://placehold.co/40x40" alt="User" class="w-10 h-10 rounded-full mr-3">
                     <div>
@@ -126,7 +128,7 @@
             </div>
 
             <!-- Post 2 -->
-            <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow">
+            <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg">
                 <div class="flex items-center mb-4">
                     <img src="https://placehold.co/40x40" alt="User" class="w-10 h-10 rounded-full mr-3">
                     <div>

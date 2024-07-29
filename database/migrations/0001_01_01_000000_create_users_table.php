@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('username')->unique();
             $table->string('avatar')->default('images/avatar/default_avatar.png');
             $table->string('note')->default('Share a note..');
             $table->timestamp('email_verified_at')->nullable();

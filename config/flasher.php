@@ -33,11 +33,11 @@ return [
 
     // Filter criteria for notifications (e.g., limit number, types)
     'filter' => [
-        'limit' => 5, // Limit the number of displayed notifications
+        'limit' => 1, // Limit the number of displayed notifications
     ],
 
     'options' => [
-        'timeout' => 1000, // in milliseconds
+        'timeout' => 4000, // in milliseconds
         'position' => 'top-right',
     ],
 ];

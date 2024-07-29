@@ -3,7 +3,8 @@
     <div class="bg-base-200 p-4 rounded-xl mb-4">
         <ul class="space-y-2">
             <li class="flex justify-between items-center">
-                <p class="text-sm text-gray-500">@janedoe</p>
+                <p class="text-sm text-gray-500">{{ '@' . Auth::user()->username }}
+                </p>
                 <form class="text-xs text-base-content">
                     <select id="countries" class="bg-transparent w-full">
                         <option class="bg-base-100" selected>Status</option>
