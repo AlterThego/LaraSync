@@ -1,62 +1,116 @@
-<aside
-    class="w-16 xl:w-64 shrink-0 bg-base-100 border-l border-gray-200 dark:border-gray-700 h-full fixed right-0 flex flex-col">
-    <div class="p-4">
-        <div class="flex items-center justify-center mb-4">
-            <a href="#" class="shrink-0">
-                <div class="avatar">
-                    <div class="w-12 xl:w-16 rounded-full">
-                        <img src="https://placehold.co/100x100" alt="User Avatar" />
+<!-- Sidebar -->
+<aside class="w-80 p-4 sticky top-0 h-screen hidden lg:block">
+    <div class="bg-base-200 p-4 rounded-xl mb-4">
+        <ul class="space-y-2">
+            <li class="flex justify-between items-center">
+                <p class="text-sm text-gray-500">@janedoe</p>
+                <form class="text-xs text-base-content">
+                    <select id="countries" class="bg-transparent w-full">
+                        <option class="bg-base-100" selected>Status</option>
+                        <option class="bg-base-100" value ="online">Online</option>
+                        <option class="bg-base-100" value="offline">Offlne</option>
+                        <option class="bg-base-100" value="away">Away</option>
+                    </select>
+                </form>
+            </li>
+            <li class="flex items-center gap-2">
+                <div class="avatar online">
+                    <div class="w-20 rounded-full bg-black dark:bg-gray-700"">
+                        <img id="avatar-preview" src="{{ Auth::user()->avatar_url }}" alt="Profile Picture Preview" />
                     </div>
                 </div>
-            </a>
-        </div>
-        <div class="text-center hidden xl:block">
-            <p class="font-bold text-xl">Jane Doe</p>
-            <p class="text-sm text-gray-500">@janedoe</p>
-        </div>
-    </div>
+                <div class="pr-10">
+                    <p class="font-bold break-words">{{ Auth::user()->name }}</p>
+                    <p class="text-sm text-gray-500">{{ Auth::user()->email }}</p>
+                </div>
+            </li>
 
-    <div class="hidden xl:block px-4 mt-6">
-        <h3 class="font-semibold mb-2">Trending Topics</h3>
+            <li class="flex items-center justify-start">
+                <span class="break-all">
+                    {{ Auth::user()->note }}
+                </span>
+            </li>
+
+            <li>
+                <div class="flex items-center gap-2">
+                    <button class="flex w-2/3 btn btn-outline btn-success" onclick="noteModal.showModal()">
+                        <p class="dark:text-base-content">Edit Note</p>
+                    </button>
+                    <form action="{{ route('notes.destroy', Auth::user()->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <form action="{{ route('notes.destroy', Auth::user()->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            @if (Auth::user()->note == 'Share a note..')
+                                <button type="submit" class="flex flex-1 btn btn-disabled" disabled>Delete Note
+                                </button>
+                            @else
+                                <button type="submit" class="flex flex-1 btn btn-error btn-outline">Delete Note
+                                </button>
+                            @endif
+
+
+
+                        </form>
+                    </form>
+                </div>
+            </li>
+
+
+            <dialog id="noteModal" class="modal">
+                <div class="modal-box">
+                    <form action="{{ route('notes.update', Auth::user()->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <button type="button" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                            onclick="document.getElementById('noteModal').close()">✕</button>
+                        <h3 class="text-lg font-bold">Edit Note</h3>
+                        <div class="flex justify-between items-center mt-4">
+                            <input type="text" placeholder="{{ Auth::user()->note }}"
+                                class="input input-bordered w-full max-w-xs" name="note" id="note" required
+                                autocomplete="off" />
+                            <button type="submit" class="btn btn-primary">
+                                <p class="dark:text-gray-100">Update Note</p>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <form method="dialog" class="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
+
+        </ul>
+    </div>
+    <div class="bg-base-200 p-4 rounded-xl mb-4">
+        <h2 class="text-xl font-bold mb-2">Trending</h2>
         <ul class="space-y-2">
-            <li><a href="#" class="text-blue-500">#WebDevelopment</a></li>
-            <li><a href="#" class="text-blue-500">#ArtificialIntelligence</a></li>
-            <li><a href="#" class="text-blue-500">#ClimateAction</a></li>
+            <li>#TechNews</li>
+            <li>Global Climate Summit</li>
+            <li>New Movie Release</li>
+            <li>#WellnessWednesday</li>
         </ul>
     </div>
-
-    <div class="hidden xl:block px-4 mt-6">
-        <h3 class="font-semibold mb-2">Suggested Follows</h3>
-        <ul class="space-y-3">
+    <div class="bg-base-200 p-4 rounded-xl">
+        <h2 class="text-xl font-bold mb-2">Suggested Follows</h2>
+        <ul class="space-y-2">
             <li class="flex items-center">
-                <img src="https://placehold.co/32x32" alt="User" class="w-8 h-8 rounded-full mr-2">
-                <span>Alice Johnson</span>
+                <img src="https://placehold.co/40x40" alt="Tech Insider Avatar" class="rounded-full mr-2">
+                <div>
+                    <p class="font-bold">Tech Insider</p>
+                    <p class="text-sm text-gray-500">@techinsider</p>
+                </div>
             </li>
             <li class="flex items-center">
-                <img src="https://placehold.co/32x32" alt="User" class="w-8 h-8 rounded-full mr-2">
-                <span>Bob Williams</span>
+                <img src="https://placehold.co/40x40" alt="Nature Lover Avatar" class="rounded-full mr-2">
+                <div>
+                    <p class="font-bold">Nature Lover</p>
+                    <p class="text-sm text-gray-500">@naturelover</p>
+                </div>
             </li>
         </ul>
     </div>
-
-    <div class="mt-auto px-1 py-4 mb-10">
-        <div class="flex items-center justify-center">
-            <form method="POST" action="{{ route('logout') }}" class="w-full">
-                @csrf
-                <button type="submit"
-                    class="flex items-center justify-center w-full text-left bg-transparent hover:bg-base-200 focus:outline-none rounded py-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"
-                        class="mr-2">
-                        <path fill="currentColor"
-                            d="M5.616 20q-.691 0-1.153-.462T4 18.384V5.616q0-.691.463-1.153T5.616 4h6.403v1H5.616q-.231 0-.424.192T5 5.616v12.769q0 .23.192.423t.423.192h6.404v1zm10.846-4.461l-.702-.72l2.319-2.319H9.192v-1h8.887l-2.32-2.32l.702-.718L20 12z" />
-                    </svg>
-                    <span class="hidden md:inline">Log Out</span>
-                </button>
-            </form>
-        </div>
-    </div>
-
-
 
 
 </aside>

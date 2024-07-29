@@ -123,4 +123,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'default_avatar' => 'https://i.imgur.com/IzlyqmC.png',
+
 ];

@@ -1,141 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three Column Layout</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="bg-gray-50">
-    <div class="flex flex-col min-h-screen">
-        <div class="flex flex-grow">
-            <!-- Aside Section -->
-            <nav
-                class="bg-gray-50 pt-6 p-1 w-/12 hidden md:block lg:block md:w-[74px] lg:w-[74px] xl:w-[13.5%] 2xl:w-[13.5%] border border-gray-300 fixed top-0 left-0 h-screen">
-                <div class="flex items-center justify-center p-4">
-                    <a href="{{ route('dashboard') }}" class="shrink-0">
-                        <x-application-logo class="block h-9 w-auto fill-current base-content" />
-                    </a>
-                </div>
-                <ul class="mt-4 space-y-4">
-                    <li>
-                        <a href="#" class="block p-2 mx-2 rounded hover:bg-gray-200">
-                            <div class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3">
-                                <img src="images/home.svg" alt="">
-                                <p class="hidden xl:block 2xl:block font-bold">Home</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#home" class="block p-2 mx-2 rounded hover:bg-gray-200">
-                            <div class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3">
-                                <img src="images/profile-outline.svg" alt="">
-                                <p class="hidden xl:block 2xl:block">Profile</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="block p-2 mx-2 rounded hover:bg-gray-200">
-                            <div class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3">
-                                <img src="images/settings-outline.svg" alt="">
-                                <p class="hidden xl:block 2xl:block">Settings</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#home" class="block p-2 mx-2 rounded hover:bg-gray-200">
-                            <div class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3">
-                                <img src="images/heart-outline.svg" alt="">
-                                <p class="hidden xl:block 2xl:block">Favorites</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#home" class="block p-2 mx-2 rounded hover:bg-gray-200">
-                            <div class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3">
-                                <img src="images/github.svg" alt="">
-                                <p class="hidden xl:block 2xl:block">Github</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-            <!-- Main Content -->
-            <main class="flex p-5 mx-auto">
-                <h1 class="text-2xl font-bold">Main Content</h1>
-                <p class="h-lvh">Main content here</p>
-            </main>
-
-            <!-- Aside Section -->
-            <aside
-                class="bg-gray-50 pt-6 p-1 w-/12 hidden md:block lg:block md:w-[74px] lg:w-[74px] xl:w-[13.5%] 2xl:w-[13.5%] border border-gray-300 fixed top-0 right-0 h-screen">
-                <div class="flex items-center justify-center p-4">
-                    <a href="#" class="shrink-0">
-                        <div class="avatar">
-                            <div class="w-12 xl:w-16 2xl:w-20 rounded-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <ul class="space-y-4">
-                    <li>
-                        <a href="#" class="block mx-2 py-2 rounded-xl hover:bg-gray-200">
-                            <div class="flex items-center justify-center">
-                                <p class="hidden xl:block 2xl:block font-bold text-xl">Jane Doe</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <div class="fixed bottom-0 w-full py-4 items-center justify-center">
-                            <a href="#"
-                                class="flex items-center justify-between p-2 mx-2 rounded hover:bg-gray-200 gap-3">
-                                <div class="flex items-center gap-2 justify-center">
-                                    <img src="images/logout.svg" alt="">
-                                    <p class="hidden xl:block">Logout</p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </aside>
-        </div>
-
-
-        <!-- Footer -->
-        <footer class="bg-gray-800 text-white p-4 mt-auto">
-            <div class="container mx-auto">
-                Footer Content
+<x-app-layout>
+    <div class="flex w-full max-w-7xl mx-auto">
+        <!-- Navigation -->
+        <nav class="w-64 p-4 sticky top-0 h-screen hidden lg:block">
+            <div class="flex justify-center items-center">
+                <x-application-logo></x-application-logo>
+                <h1 class="text-2xl font-bold mb-4 text-primary">LaraSync</h1>
             </div>
-        </footer>
-    </div>
+            <ul class="space-y-2">
+                <li class="hover:bg-base-300 p-2 rounded-full cursor-pointer"><i class="fas fa-home mr-2"></i>Home</li>
+                <li class="hover:bg-base-300 p-2 rounded-full cursor-pointer"><i class="fas fa-compass mr-2"></i>Explore
+                </li>
+                <li class="hover:bg-base-300 p-2 rounded-full cursor-pointer"><i
+                        class="far fa-bell mr-2"></i>Notifications</li>
+                <li class="hover:bg-base-300 p-2 rounded-full cursor-pointer"><i
+                        class="far fa-envelope mr-2"></i>Messages</li>
+                <li class="hover:bg-base-300 p-2 rounded-full cursor-pointer"><i class="far fa-user mr-2"></i>Profile
+                </li>
+            </ul>
+            <button class="btn btn-primary rounded-full mt-4 w-full">Post</button>
+        </nav>
 
-    <div class="block md:hidden lg:hidden">
-        <div class="flex btm-nav btm-nav-sm w-full fixed bottom-0">
-            <button>
-                <img src="images/settings-outline.svg" alt="">
-            </button>
-            <button>
-                <img src="images/profile-outline.svg" alt="">
-            </button>
-            <button class="active">
-                <img src="images/home-outline.svg" alt="">
-            </button>
-            <button>
-                <img src="images/heart-outline.svg" alt="">
-            </button>
-            <button>
-                <img src="images/github.svg" alt="">
-            </button>
-            <button>
-                <img src="images/logout.svg" alt="">
-            </button>
-        </div>
-    </div>
-</body>
+        <!-- Main Content -->
+        <main class="flex-1 border-x border-base-300 bg-base-100">
+            <div class="sticky top-0 bg-base-100/80 backdrop-blur p-4 border-b border-base-300">
+                <h1 class="text-3xl font-bold">News and Updates</h1>
+            </div>
+            <div class="p-4">
+                <!-- Post input -->
+                <div class="bg-base-100 p-4 rounded-lg shadow mb-6 border border-gray-200 dark:border-gray-700">
+                    <textarea class="bg-base-200 textarea textarea-bordered text-base w-full focus:border-primary" rows="3"
+                        placeholder="What's on your mind?"></textarea>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div>
+                            <button class="btn btn-sm">📷 Photo</button>
+                            <button class="btn btn-sm ml-2">📍 Location</button>
+                        </div>
+                        <button class="btn btn-primary">New Post</button>
+                    </div>
+                </div>
 
-</html>
+                <!-- Feed items -->
+                <div class="space-y-6">
+                    <!-- Post 1 -->
+                    <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/40x40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <p class="font-semibold">John Doe</p>
+                                <p class="text-sm text-gray-500">2 hours ago</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Just finished a great workout! 💪 Feeling energized and ready to tackle the
+                            day. #FitnessJourney</p>
+                        <img src="https://placehold.co/600x400" alt="Post image" class="w-full rounded-lg mb-4">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <button class="btn btn-sm">👍 Like</button>
+                                <button class="btn btn-sm ml-2">💬 Comment</button>
+                            </div>
+                            <span class="text-sm text-gray-500">23 likes • 5 comments</span>
+                        </div>
+                    </div>
+
+                    <!-- Post 2 -->
+                    <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/40x40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <p class="font-semibold">Jane Smith</p>
+                                <p class="text-sm text-gray-500">5 hours ago</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Just launched my new website! Check it out and let me know what you think. 🚀
+                            #WebDevelopment #Coding</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <button class="btn btn-sm">👍 Like</button>
+                                <button class="btn btn-sm ml-2">💬 Comment</button>
+                            </div>
+                            <span class="text-sm text-gray-500">45 likes • 12 comments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="w-80 p-4 sticky top-0 h-screen hidden xl:block">
+            <div class="bg-base-200 p-4 rounded-lg mb-4">
+                <h2 class="text-xl font-bold mb-2">Trending</h2>
+                <ul class="space-y-2">
+                    <li>#TechNews</li>
+                    <li>Global Climate Summit</li>
+                    <li>New Movie Release</li>
+                    <li>#WellnessWednesday</li>
+                </ul>
+            </div>
+            <div class="bg-base-200 p-4 rounded-lg">
+                <h2 class="text-xl font-bold mb-2">Suggested Follows</h2>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <img src="https://placehold.co/40x40" alt="Tech Insider Avatar" class="rounded-full mr-2">
+                        <div>
+                            <p class="font-bold">Tech Insider</p>
+                            <p class="text-sm text-gray-500">@techinsider</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center">
+                        <img src="https://placehold.co/40x40" alt="Nature Lover Avatar" class="rounded-full mr-2">
+                        <div>
+                            <p class="font-bold">Nature Lover</p>
+                            <p class="text-sm text-gray-500">@naturelover</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</x-app-layout>
