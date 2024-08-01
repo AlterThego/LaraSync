@@ -14,16 +14,19 @@
                     </select>
                 </form>
             </li>
-            <li class="flex items-center gap-2">
-                <div class="avatar online">
-                    <div class="w-20 rounded-full bg-black dark:bg-gray-700"">
-                        <img id="avatar-preview" src="{{ Auth::user()->avatar_url }}" alt="Profile Picture Preview" />
+            <li>
+                <a href="/profile" class="flex items-center gap-2">
+                    <div class="avatar">
+                        <div class="w-12 rounded-full bg-black dark:bg-gray-700"">
+                            <img id="avatar-preview" src="{{ Auth::user()->avatar_url }}"
+                                alt="Profile Picture Preview" />
+                        </div>
                     </div>
-                </div>
-                <div class="pr-10">
-                    <p class="font-bold break-words">{{ Auth::user()->name }}</p>
-                    <p class="text-sm text-gray-500">{{ Auth::user()->email }}</p>
-                </div>
+                    <div class="pr-10">
+                        <p class="font-bold break-words">{{ Auth::user()->name }}</p>
+                        <p class="text-sm text-gray-500">{{ Auth::user()->email }}</p>
+                    </div>
+                </a>
             </li>
 
             <li class="flex items-center justify-start">

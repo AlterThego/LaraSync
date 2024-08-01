@@ -17,18 +17,6 @@
         @csrf
         @method('patch')
         <div>
-            <x-input-label for="avatar" :value="__('Profile Picture')" />
-            <div class="flex flex-col items-center justify-center mt-2">
-                <img id="avatar-preview" src="{{ $user->avatar ? Storage::url($user->avatar) : '' }}"
-                    alt="Profile Picture Preview"
-                    class="object-cover rounded-full h-40 w-40 sm:h-48 sm:w-48 md:h-56 md:w-56 lg:h-64 lg:w-64 bg-black" />
-                <input id="avatar" name="avatar" type="file"
-                    class="mt-4 block w-full text-sm text-base-content file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
-                    accept="image/*" onchange="previewImage(event)" />
-            </div>
-        </div>
-
-        <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)"
                 required autocomplete="off" />

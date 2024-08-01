@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfilePictureUpdateRequest;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,14 +12,14 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Log;
 
-class ProfileController extends Controller
+class ProfilePictureController extends Controller
 {
     /**
      * Display the user's profile form.
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        return view('user-profile', [
             'user' => $request->user(),
         ]);
     }
@@ -26,22 +27,26 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfilePictureUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
 
         // Update basic information
         $user->fill($request->validated());
 
+        // Handle profile picture upload
+        if ($request->hasFile('avatar')) {
+            if ($user->avatar) {
+                Storage::delete($user->avatar);
+            }
 
-
-        if ($user->isDirty('email')) {
-            $user->email_verified_at = null;
+            $path = $request->file('avatar')->store('avatar', 'public');
+            $user->avatar = $path;
         }
 
         $user->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile');
     }
 
     /**
@@ -49,20 +54,6 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        flash()->success('Profile deleted successfully.');
-        return Redirect::to('/');
+ 
     }
 }

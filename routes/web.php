@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfilePictureController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/playground', function () {
@@ -20,9 +21,16 @@ Route::get('/dashboard', function () {
 //     return view('home');
 // })->middleware(['auth', 'verified'])->name('home');
 
-Route::get('/profile', function () {
-    return view('user-profile');
-})->middleware(['auth', 'verified'])->name('profile');
+// Route::get('/profile', function () {
+//     return view('user-profile');
+// })->middleware(['auth', 'verified'])->name('profile');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile/', [ProfilePictureController::class, 'edit'])->name('profile');
+    Route::patch('/profile', [ProfilePictureController::class, 'update'])->name('user-profile.update');
+    Route::delete('/profile', [ProfilePictureController::class, 'destroy'])->name('user-profile.destroy');
+});
 
 
 Route::middleware('auth')->group(function () {
