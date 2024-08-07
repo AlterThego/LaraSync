@@ -109,7 +109,7 @@
             </x-nav-link>
         </li>
         <li>
-            <x-nav-link class="block p-1 mx-2 rounded hover:bg-base-300">
+            <x-nav-link :href="'https://github.com/AlterThego/LaraSync'" class="block p-1 mx-2 rounded hover:bg-base-300" target="_blank">
                 <div
                     class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3 text-base-content">
                     {{-- SVG outline --}}
@@ -122,6 +122,7 @@
                     </p>
                 </div>
             </x-nav-link>
+
         </li>
         <li>
             <x-nav-link class="block p-1 mx-2 rounded">

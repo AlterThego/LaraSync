@@ -67,8 +67,9 @@
     <!-- Mobile Navigation -->
     <div
         class="block md:hidden fixed bottom-0 left-0 right-0 bg-base-100 border-t border-gray-200 dark:border-gray-700 z-50">
-        <div class="flex justify-around">
-            <x-nav-link :href="route('profile')" :active="request()->routeIs('profile')" class="block p-1 mx-2 rounded hover:bg-base-200">
+        <div class="flex justify-around px-10">
+            <x-nav-link :href="route('profile')" :active="request()->routeIs('profile')"
+                class="flex w-full justify-center mx-2 rounded hover:bg-base-200">
                 <div
                     class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3 text-base-content">
                     @if (request()->routeIs('profile'))
@@ -102,10 +103,22 @@
                     </p>
                 </div>
             </x-nav-link>
-            <button class="p-2">
-                <img src="https://placehold.co/24x24?text=P" alt="Profile" class="w-6 h-6">
-            </button>
-            <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="block p-1 mx-2 rounded hover:bg-base-200">
+
+            <x-nav-link class="flex w-full justify-center mx-2 rounded hover:bg-base-200">
+                <div
+                    class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3 text-base-content">
+                    {{-- SVG outline --}}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
+                        <path fill="currentColor"
+                            d="M178 42c-21 0-39.26 9.47-50 25.34C117.26 51.47 99 42 78 42a60.07 60.07 0 0 0-60 60c0 29.2 18.2 59.59 54.1 90.31a334.7 334.7 0 0 0 53.06 37a6 6 0 0 0 5.68 0a334.7 334.7 0 0 0 53.06-37C219.8 161.59 238 131.2 238 102a60.07 60.07 0 0 0-60-60m-50 175.11c-16.41-9.47-98-59.39-98-115.11a48.05 48.05 0 0 1 48-48c20.28 0 37.31 10.83 44.45 28.27a6 6 0 0 0 11.1 0C140.69 64.83 157.72 54 178 54a48.05 48.05 0 0 1 48 48c0 55.72-81.59 105.64-98 115.11" />
+                    </svg>
+                    <p class="hidden xl:block 2xl:block">
+                        Favorites
+                    </p>
+                </div>
+            </x-nav-link>
+            <x-nav-link :href="route('home')" :active="request()->routeIs('home')"
+                class="flex w-full justify-center mx-2 rounded hover:bg-base-200">
                 <div
                     class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3 text-base-content">
                     @if (request()->routeIs('home'))
@@ -127,7 +140,9 @@
                     </p>
                 </div>
             </x-nav-link>
-            <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')" class="block p-1 mx-2 rounded hover:bg-base-200">
+
+            <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')"
+                class="flex justify-center w-full mx-2 rounded hover:bg-base-200">
                 <div
                     class="flex items-center justify-center xl:justify-start 2xl:justify-start gap-3 text-base-content">
                     @if (request()->routeIs('profile.edit'))
@@ -149,9 +164,21 @@
                     </p>
                 </div>
             </x-nav-link>
-            <button class="p-2">
-                <img src="https://placehold.co/24x24?text=G" alt="Github" class="w-6 h-6">
-            </button>
+
+            <x-nav-link class="flex justify-center w-full mx-2 rounded hover:bg-base-200 cursor-pointer"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <form id="logout-form" method="POST" action="{{ route('logout') }}"
+                    class="flex items-center justify-center w-full">
+                    @csrf
+                    <!-- SVG icon or any other content -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M5.616 20q-.691 0-1.153-.462T4 18.384V5.616q0-.691.463-1.153T5.616 4h6.403v1H5.616q-.231 0-.424.192T5 5.616v12.769q0 .23.192.423t.423.192h6.404v1zm10.846-4.461l-.702-.72l2.319-2.319H9.192v-1h8.887l-2.32-2.32l.702-.718L20 12z" />
+                    </svg>
+                </form>
+            </x-nav-link>
+
+
         </div>
     </div>
 

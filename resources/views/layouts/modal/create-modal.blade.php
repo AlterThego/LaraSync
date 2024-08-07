@@ -47,8 +47,8 @@
                         onchange="previewImage(event)" />
                 </div>
                 <div class="flex pt-4 justify-end">
-                    <button class="btn btn-outline btn-primary">
-                        <p class="text-base-content">Create Post</p>
+                    <button class="btn btn-primary">
+                        <p class="text-white">Create Post</p>
                     </button>
                 </div>
             </div>
