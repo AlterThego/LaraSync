@@ -32,5 +32,5 @@ Built with Laravel. An accessible, powerful, and provides tools required for lar
 8. php artisan serve
 9. OPTIONAL: php artisan db:seed (email: admin@admin, password: admin@admin)
 
-*[Login](http://127.0.0.1:8000/login)
-*[Register](http://127.0.0.1:8000/register)
+*Login = http://127.0.0.1:8000/login
+*Register = http://127.0.0.1:8000/register
