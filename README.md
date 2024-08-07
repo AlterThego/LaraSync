@@ -25,8 +25,12 @@ Built with Laravel. An accessible, powerful, and provides tools required for lar
 1. composer install
 2. npm install
 3. cp .env.example .env
-3. php artisan migrate (run with xampp)
-4. php artisan key:generate
-5. npm run dev
-6. php artisan serve
+4. php artisan migrate (run with xampp)
+5. php artisan key:generate
+6. php artisan storage:link
+7. npm run dev
+8. php artisan serve
+9. OPTIONAL: php artisan db:seed (email: admin@admin, password: admin@admin)
 
+*[Login](http://127.0.0.1:8000/login)
+*[Register](http://127.0.0.1:8000/register)
