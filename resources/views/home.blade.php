@@ -77,18 +77,19 @@
                         </div>
                     </div>
                     <p class="mb-2 font-semibold">{{ $post->title }}</p>
-
-                    @if ($post->image)
-                        <img src="{{ Storage::url($post->image) }}" alt="{{ $post->title }}"
-                            class="w-full rounded-lg mb-2">
-                    @endif
+                    <p class="mb-4">{{ $post->description }}</p>
+                    <div class="bg-gray-950 rounded-lg">
+                        @if ($post->image)
+                            <img src="{{ Storage::url($post->image) }}" alt="{{ $post->title }}"
+                                class="w-full rounded-lg mb-2 opacity-90 dark:opacity-80">
+                        @endif
+                    </div>
                     @if ($post->video)
                         <video controls class="w-full rounded-lg mb-2">
                             <source src="{{ Storage::url($post->video) }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     @endif
-                    <p class="mb-4">{{ $post->description }}</p>
                     <div class="flex justify-between items-center">
                         <div class="flex gap-4 items-center">
                             <a href="#"><img src="images/favorites-outline.svg"></a>

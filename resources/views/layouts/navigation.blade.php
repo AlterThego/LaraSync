@@ -195,7 +195,7 @@
             </div>
         </div>
         <x-nav-link>
-            <div class="mt-auto p-4">
+            <div class="mt-auto py-4 px-2">
                 <form method="POST" action="{{ route('logout') }}" class="w-full">
                     @csrf
                     <button type="submit" title="Logout"
