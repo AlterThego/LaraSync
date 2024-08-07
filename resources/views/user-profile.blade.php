@@ -29,9 +29,15 @@
                             </div>
                         </div>
 
-                        <h2 class="mt-4 text-2xl font-bold">
-                            {{ Auth::user()->username }}
-                        </h2>
+                        <div class="flex flex-col items-center justify-center">
+                            <h3 class="mt-4 text-2xl font-bold">
+                                {{ Auth::user()->name }}
+                            </h3>
+                            <div class="flex justify-center text-lg font-thin">
+                                <h3>@</h3>
+                                <h3>{{ Auth::user()->username }}</h3>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="save-button-container" class="flex justify-center" style="display: none;">
