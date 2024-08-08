@@ -39,3 +39,15 @@ Built with Laravel. An accessible, powerful, and provides tools required for lar
 <p align="center">
 <img src="https://i.imgur.com/cRDwjMq.png" alt="Login Page">
 </p>
+
+## Home
+<p align="center">
+<img src="https://i.imgur.com/dM6jzMG.png" alt="Home Page">
+</p>
+
+## Night Mode - Home
+<p align="center">
+<img src="https://i.imgur.com/RGszECs.png" alt="Home Dark Page">
+</p>
+
+

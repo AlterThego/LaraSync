@@ -17,7 +17,7 @@
             <li>
                 <a href="/profile" class="flex items-center gap-2">
                     <div class="avatar">
-                        <div class="w-12 rounded-full bg-black dark:bg-transparent 00 border-2 border-black dark:border-white">
+                        <div class="w-12 rounded-full bg-black dark:bg-transparent 00 border-2 border-black">
                             <img id="avatar-preview" src="{{ Auth::user()->avatar_url }}"
                                 alt="Profile Picture Preview" />
                         </div>

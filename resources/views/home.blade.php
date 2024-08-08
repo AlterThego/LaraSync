@@ -14,7 +14,7 @@
                 <div>
                     <button class="btn btn-sm" onclick="createPostModal.showModal()"">📷 Photo</button>
                     <button class="btn
-                        btn-sm ml-2" onclick="createPostModal.showModal()"">📍
+                        btn-sm ml-2" onclick="createPostModal.showModal()"">🎥
                         Video</button>
                 </div>
             </div>
@@ -28,10 +28,6 @@
                     <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg">
                         <div class="flex justify-between">
                             <div class="flex items-center mb-4">
-                                {{-- <div class="">
-                            <img src="{{ asset('storage/' . $post->user->avatar) }}"
-                                alt="{{ $post->user->name }}'s Avatar" class="w-10 h-10 rounded-full mr-3">
-                        </div> --}}
                                 <div class="avatar">
                                     <div class="w-10 rounded-full mr-3 bg-black">
                                         <img src="{{ asset('storage/' . $post->user->avatar) }}"
@@ -114,47 +110,6 @@
                     <p class="text-lg">No posts available.</p>
                 </section>
             @endif
-
-
-            {{-- <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg">
-                <div class="flex items-center mb-4">
-                    <img src="https://placehold.co/40x40" alt="User" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="font-semibold">John Doe</p>
-                        <p class="text-sm text-gray-500">2 hours ago</p>
-                    </div>
-                </div>
-                <p class="mb-4">Just finished a great workout! 💪 Feeling energized and ready to tackle the
-                    day. #FitnessJourney</p>
-                <img src="https://placehold.co/600x400" alt="Post image" class="w-full rounded-lg mb-4">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <button class="btn btn-sm">👍 Like</button>
-                        <button class="btn btn-sm ml-2">💬 Comment</button>
-                    </div>
-                    <span class="text-sm text-gray-500">23 likes • 5 comments</span>
-                </div>
-            </div>
-
-            <!-- Post 2 -->
-            <div class="bg-base-100 border border-gray-200 dark:border-gray-700 p-4 rounded-lg">
-                <div class="flex items-center mb-4">
-                    <img src="https://placehold.co/40x40" alt="User" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="font-semibold">Jane Smith</p>
-                        <p class="text-sm text-gray-500">5 hours ago</p>
-                    </div>
-                </div>
-                <p class="mb-4">Just launched my new website! Check it out and let me know what you think. 🚀
-                    #WebDevelopment #Coding</p>
-                <div class="flex justify-between items-center">
-                    <div>
-                        <button class="btn btn-sm">👍 Like</button>
-                        <button class="btn btn-sm ml-2">💬 Comment</button>
-                    </div>
-                    <span class="text-sm text-gray-500">45 likes • 12 comments</span>
-                </div>
-            </div> --}}
         </div>
     </div>
 
