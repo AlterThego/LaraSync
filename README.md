@@ -37,5 +37,5 @@ Built with Laravel. An accessible, powerful, and provides tools required for lar
 
 ## Login
 <p align="center">
-<img src="https://imgur.com/a/1ICXmhf" alt="Login Page">
+<img src="https://i.imgur.com/cRDwjMq.png" alt="Login Page">
 </p>
