@@ -4,40 +4,19 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilePictureController;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/playground', function () {
-    return view('playground');
-});
-Route::get('/playground2', function () {
-    return view('playground2');
-});
-
+use App\Http\Controllers\NoteController;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/', function () {
-//     return view('home');
-// })->middleware(['auth', 'verified'])->name('home');
-
-// Route::get('/profile', function () {
-//     return view('user-profile');
-// })->middleware(['auth', 'verified'])->name('profile');
-
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile/', [ProfilePictureController::class, 'edit'])->name('profile');
+    Route::get('/profile', [ProfilePictureController::class, 'edit'])->name('profile');
     Route::patch('/profile', [ProfilePictureController::class, 'update'])->name('user-profile.update');
     Route::delete('/profile', [ProfilePictureController::class, 'destroy'])->name('user-profile.destroy');
 });
 
-
-Route::middleware('auth')->group(function () {
-    Route::get('/settings', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/settings', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/settings', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [PostController::class, 'index'])->name('home');
@@ -47,7 +26,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/home/{post}', [PostController::class, 'destroy'])->name('home.destroy');
 });
 
-use App\Http\Controllers\NoteController;
+Route::middleware('auth')->group(function () {
+    Route::get('/settings', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/settings', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/settings', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::get('notes/create', [NoteController::class, 'create'])->name('notes.create');

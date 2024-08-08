@@ -105,7 +105,7 @@ class PostController extends Controller
 
         // Update the post
         $post->update($validated);
-        flash()->success('Note updaed successfully.');
+        flash()->success('Note updated successfully.');
         // Redirect to the posts index
         return redirect()->route('home');
     }

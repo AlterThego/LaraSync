@@ -16,7 +16,7 @@ At its core, LaraSync offers essential social media features through basic CRUD 
 - Create and manage profiles.
 - Post and edit content.
 - Remove their posts or account if desired.
-- Authentication system powered by Laravel Breeze.
+- Experience authentication system powered by Laravel Breeze.
 
 Built with Laravel. An accessible, powerful, and provides tools required for large, robust applications powered by php.
 
@@ -34,3 +34,8 @@ Built with Laravel. An accessible, powerful, and provides tools required for lar
 
 *Login = http://127.0.0.1:8000/login
 *Register = http://127.0.0.1:8000/register
+
+## Login
+<p align="center">
+<img src="https://imgur.com/a/1ICXmhf" alt="Login Page">
+</p>
