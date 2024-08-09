@@ -12,22 +12,25 @@
                     @method('patch')
 
                     <div class="flex flex-col items-center">
-                        <div class="relative group">
-                            <img id="avatar-preview"
-                                src="{{ $user->avatar ? Storage::url($user->avatar) : asset('images/default-avatar.png') }}"
-                                alt="{{ Auth::user()->username }}'s Profile Picture"
-                                class="object-cover rounded-full h-32 w-32 sm:h-40 sm:w-40 transition-all duration-300 group-hover:opacity-75 bg-black" />
+                       <div class="relative group">
+                        <!-- Profile Picture -->
+                        <img id="avatar-preview"
+                            src="{{ $user->avatar ? Storage::url($user->avatar) : asset('images/default-avatar.png') }}"
+                            alt="{{ Auth::user()->username }}'s Profile Picture"
+                            class="object-cover rounded-full h-15 w-15 sm:h-20 sm:w-20 transition-all duration-300 group-hover:opacity-75 bg-black" />
 
-                            <div
-                                class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <label for="avatar"
-                                    class="bg-black bg-opacity-50 text-white py-2 px-4 rounded-full cursor-pointer">
-                                    Change Photo
-                                </label>
-                                <input id="avatar" name="avatar" type="file" class="hidden" accept="image/*"
-                                    onchange="handleImageUpload(event)" />
-                            </div>
+                        <!-- Overlay for Changing Photo -->
+                        <div
+                            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <label for="avatar"
+                                class="bg-black bg-opacity-50 text-white py-1 px-2 rounded-full cursor-pointer text-sm sm:text-base">
+                                Change Photo
+                            </label>
+                            <input id="avatar" name="avatar" type="file" class="hidden" accept="image/*"
+                                onchange="handleImageUpload(event)" />
                         </div>
+                    </div>
+
 
                         <div class="flex flex-col items-center justify-center">
                             <h3 class="mt-4 text-2xl font-bold">
