@@ -49,11 +49,4 @@ class ProfilePictureController extends Controller
         return Redirect::route('profile');
     }
 
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
- 
-    }
 }

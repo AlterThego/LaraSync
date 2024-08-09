@@ -20,7 +20,6 @@ class PostController extends Controller
     {
         // Define custom validation rules
         $validator = Validator::make($request->all(), [
-            'author' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'media' => 'nullable|file|mimes:jpeg,png,jpg,gif,mp4,avi,mov,wmv|max:20480',
@@ -112,10 +111,6 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-
-
-
-
         try {
             // Delete media files if exists
             if ($post->image) {

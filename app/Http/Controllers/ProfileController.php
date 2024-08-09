@@ -40,8 +40,8 @@ class ProfileController extends Controller
         }
 
         $user->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        flash()->success('Profile updated successfully.');
+        return Redirect::route('profile.edit');
     }
 
     /**

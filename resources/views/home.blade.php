@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <p class="font-extrabold">{{ $post->author }}</p>
+                                    <p class="font-extrabold">{{ $post->user->name }}</p>
                                     <p class="text-sm text-gray-500">{{ $post->created_at->diffForHumans() }}</p>
                                 </div>
                             </div>
@@ -60,14 +60,14 @@
                                     </li>
 
                                     <li onclick="document.getElementById('delete-form-{{ $post->id }}').submit()">
-                                        <div class="">
+                                        <div class="hover:font-bold">
                                             <form id="delete-form-{{ $post->id }}"
                                                 action="{{ route('home.destroy', $post) }}" method="POST"
                                                 style="display: none;">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
-                                            Delete
+                                            <p class="text-error">Delete</p>
                                         </div>
                                     </li>
                                 </ul>
