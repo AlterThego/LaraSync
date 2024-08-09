@@ -37,15 +37,26 @@
             </li>
 
             <!-- Actions -->
-        <li>
-            <div class="flex items-center gap-2 p-2">
-                <!-- Create Note Button -->
-                <button class="flex-1 btn btn-outline btn-primary flex items-center justify-center space-x-2" onclick="document.getElementById('noteModal').showModal()">
-                    
-                    <p class="text-blue-600 dark:text-blue-600 text-center"> + Create a Note</p>
-                </button>
+            <li>
+    <div class="flex items-center gap-2 p-2">
+        <!-- Conditionally Render Button -->
+        @if (Auth::user()->note == 'Share a note..' || Auth::user()->note == '')
+            <!-- Create Note Button -->
+            <button class="flex-1 btn btn-outline btn-primary flex items-center justify-center space-x-2" onclick="document.getElementById('noteModal').showModal()">
+                <svg class="w-5 h-5 text-blue-600 dark:text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                </svg>
+                <p class="text-blue-600 dark:text-blue-600 text-center">Create a Note</p>
+            </button>
+        @else
+            <!-- Edit Note Button -->
+            <button class="flex-1 btn btn-outline btn-primary flex items-center justify-center space-x-2" onclick="document.getElementById('noteModal').showModal()">
 
-                <!-- Delete Note Button -->
+                <p class="text-blue-600 dark:text-blue-600 text-center">Edit Note</p>
+            </button>
+        @endif
+
+        <!-- Delete Note Button -->
                 <form id="delete-note-form" action="{{ route('notes.destroy', Auth::user()->id) }}" method="POST" class="flex-shrink-0">
                     @csrf
                     @method('DELETE')
@@ -57,6 +68,7 @@
                 </form>
             </div>
         </li>
+
 
 
 
