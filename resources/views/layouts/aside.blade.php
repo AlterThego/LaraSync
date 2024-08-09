@@ -3,40 +3,45 @@
     <div class="bg-base-200 p-4 rounded-xl mb-4">
         <ul class="space-y-4">
             <!-- User Status -->
-            <li class="flex justify-between items-center">
-                <p class="text-sm text-gray-500">{{ '@' . Auth::user()->username }}</p>
-                <form class="text-xs text-base-content">
-                    <select id="status" class="bg-transparent w-full p-1 border rounded">
-                        <option value="online" {{ Auth::user()->status === 'online' ? 'selected' : '' }}>Online</option>
-                        <option value="offline" {{ Auth::user()->status === 'offline' ? 'selected' : '' }}>Offline</option>
-                        <option value="away" {{ Auth::user()->status === 'away' ? 'selected' : '' }}>Away</option>
-                    </select>
-                </form>
-            </li>
+            <form class="text-xs text-base-content">
+                <!-- Status Indicator -->
+                <div >
+                    <span id="status-color" class="w-3 h-3 rounded-full "></span>
+                </div>
+                <!-- Status Dropdown -->
+                <select id="status" class="bg-transparent w-full p-1 border rounded" onchange="updateStatus()">
+                    <option value="online" {{ Auth::user()->status === 'online' ? 'selected' : '' }}>Online</option>
+                    <option value="offline" {{ Auth::user()->status === 'offline' ? 'selected' : '' }}>Offline</option>
+                    <option value="away" {{ Auth::user()->status === 'away' ? 'selected' : '' }}>Away</option>
+                </select>
+            </form>
 
             <!-- Profile -->
             <li>
                 <a href="/profile" class="flex items-center gap-2 p-2 hover:bg-base-300 rounded-lg transition duration-300">
-                    <div class="avatar">
-                        <div class="w-12 rounded-full bg-black dark:bg-transparent border-2 border-black">
-                            <img id="avatar-preview" src="{{ Auth::user()->avatar_url }}" alt="Profile Picture Preview" />
-                        </div>
+                    <div class="relative">
+                        <div class="relative w-12 h-12 rounded-full border-2 border-black bg-black dark:bg-transparent">
+                        <img id="avatar-preview" src="{{ Auth::user()->avatar_url }}" alt="Profile Picture Preview"
+                            class="w-full h-full object-cover rounded-full border-2 border-black" />
+                    </div>
+                        <!-- Status Indicator on Profile Picture -->
+                        <span id="status-color-profile" class="absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-white {{ Auth::user()->status === 'online' ? 'bg-green-500' : (Auth::user()->status === 'offline' ? 'bg-gray-500' : 'bg-yellow-500') }}"></span>
                     </div>
                     <div class="flex-1 pr-2">
                         <p class="font-bold break-words text-gray-900 dark:text-white">{{ Auth::user()->name }}</p>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">{{ Auth::user()->email }}</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">{{ '@' . Auth::user()->username }}</p>
                     </div>
                 </a>
             </li>
 
             <!-- Note -->
-            <li class="flex items-center justify-start p-2">
+            <li class="flex items-center justify-start p-1">
                 <span class="break-all text-sm text-gray-700 dark:text-gray-300">
                     {{ Auth::user()->note }}
                 </span>
             </li>
 
-            <!-- Actions -->
+             <!-- Actions -->
             <li>
     <div class="flex items-center gap-2 p-2">
         <!-- Conditionally Render Button -->
@@ -184,7 +189,7 @@
 
         function updateCarouselPosition() {
             const offset = -currentIndex * 100; // Calculate the offset for the transform
-            carouselInner.style.transform = `translateX(${offset}%)`;
+            carouselInner.style.transform = translateX(${offset}%);
         }
 
         prevButton.addEventListener("click", function() {
@@ -202,5 +207,68 @@
         if (noteContent === 'Share a note..' || noteContent === '') {
             document.querySelector('#delete-note-form button').classList.add('hidden');
         }
+    });
+</script>
+
+<script>
+    function updateStatus() {
+        const statusDropdown = document.getElementById('status');
+        const statusColor = document.getElementById('status-color');
+        const statusColorProfile = document.getElementById('status-color-profile');
+        const statusText = document.getElementById('status-text');
+
+        const selectedStatus = statusDropdown.value;
+        let colorClass = '';
+        let text = '';
+
+        switch (selectedStatus) {
+            case 'online':
+                colorClass = 'bg-green-500';
+                text = 'Online';
+                break;
+            case 'offline':
+                colorClass = 'bg-gray-500';
+                text = 'Offline';
+                break;
+            case 'away':
+                colorClass = 'bg-yellow-500';
+                text = 'Away';
+                break;
+        }
+
+        statusColor.className = `w-3 h-3 rounded-full ${colorClass}`;
+        statusColorProfile.className = `absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-white ${colorClass}`;
+        statusText.textContent = text;
+
+        // Optionally, you can make an AJAX request to save the new status on the server.
+        fetch('/update-status', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ status: selectedStatus })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Status updated successfully:', data);
+        })
+        .catch(error => {
+            console.error('Error updating status:', error);
+        });
+    }
+
+    document.getElementById('prevButton').addEventListener('click', () => {
+        document.querySelector('.carousel-inner').scrollBy({
+            left: -300, // Adjust value as needed
+            behavior: 'smooth'
+        });
+    });
+
+    document.getElementById('nextButton').addEventListener('click', () => {
+        document.querySelector('.carousel-inner').scrollBy({
+            left: 300, // Adjust value as needed
+            behavior: 'smooth'
+        });
     });
 </script>
