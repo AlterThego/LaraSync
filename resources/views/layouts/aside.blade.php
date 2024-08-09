@@ -132,7 +132,6 @@
 
     </div>
 
-    <!-- Suggested Follows -->
     <div class="bg-base-200 p-4 rounded-xl">
         <h2 class="text-xl font-bold mb-2">Suggested Follows</h2>
         <ul class="space-y-2">
@@ -152,7 +151,10 @@
             </li>
         </ul>
     </div>
+
+
 </aside>
+
 
 <!-- Note Modal -->
 <dialog id="noteModal" class="modal">
@@ -189,7 +191,7 @@
 
         function updateCarouselPosition() {
             const offset = -currentIndex * 100; // Calculate the offset for the transform
-            carouselInner.style.transform = translateX(${offset}%);
+            carouselInner.style.transform = `translateX(${offset}%)`;
         }
 
         prevButton.addEventListener("click", function() {
@@ -201,12 +203,6 @@
             currentIndex = (currentIndex + 1) % totalItems; // Move to next item
             updateCarouselPosition();
         });
-
-        // Show or hide the delete note section based on the user's note content
-        const noteContent = "{{ Auth::user()->note }}";
-        if (noteContent === 'Share a note..' || noteContent === '') {
-            document.querySelector('#delete-note-form button').classList.add('hidden');
-        }
     });
 </script>
 
